@@ -4,8 +4,9 @@
   "description": "Module 11 Challenge",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "jest",
+    "start": "node server.js",
+    "devStart": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,8 @@
   "homepage": "https://github.com/EvelynAguirreOrtiz/notetaker-challenge#readme",
   "dependencies": {
     "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
