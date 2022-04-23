@@ -1,48 +1,23 @@
 const router = require('express').Router();
-const { createNewNote } = require('../../lib/notes.js');
 const { notes } = require('../../db/db.json');
 const uuid = require('../../lib/uuid.js');
 
 const fs = require("fs");
 const path = require('path');
-
-// request for notes
-// router.get('/api/notes', (req, res) => {
-//   res.json(notes);
-// });
+const { route } = require('express/lib/application');
 
 router.get('/notes', (req, res) => {
   const notes = fs.readFileSync(path.join(__dirname, '../../db/db.json'), 'utf8');
    res.json(JSON.parse(notes));
  });
 
-
-// GET request for a single note
-// router.get('/notes/:id', (req, res) => {
-//   if (req.body && req.params.id) {
-//     const noteId = req.params.id;
-//     for (let i = 0; i < notes.length; i++) {
-//       const currentNote = notes[i];
-//       if (currentNote.id === noteId) {
-//         res.json(currentNote);
-//         return;
-//       }
-//     }
-//     res.json('Note ID not found');
-//   }
-// });
-
-
-
 // POST request to add a note
 router.post('/notes', (req, res) => {
   
-  // Destructuring assignment for the items in req.body
   const { title, text } = req.body;
 
-  // If all the required properties are present
   if (title && text) {
-    // Variable for the object we will save
+
     const newNote = {
       title,
       text,
@@ -83,19 +58,19 @@ router.post('/notes', (req, res) => {
   }
 });
 
-
-
-// router.post('/notes', (req, res) => {
-//   // set id based on what the next index of the array will be
-//   req.body.id = notes.length.toString();
-
-//   // if any data in req.body is incorrect, send 400 error back
-//   if (!validateNote(req.body)) {
-//     res.status(400).send('The note is not properly formatted.');
-//   } else {
-//     const note = createNewNote(req.body, notes);
-//     res.json(note);
-//   }
-// });
+router.delete('/notes/:id', (req, res) => {
+  const id = req.params.id
+  const notes = fs.readFile('db/db.json', (err, data) => {
+    if (err) throw err;
+    let notes = JSON.parse(data)
+    console.log(notes, id)
+    fs.writeFile('db/db.json', JSON.stringify(notes.filter((note) => note.id !== id)), (err) => {
+      if (err) throw err;
+    })
+    res.json({
+      ok: true
+    })
+  }) 
+});
 
 module.exports = router;
