@@ -1,12 +1,10 @@
 const router = require('express').Router();
-// const { filterByQuery, findById,} = require('../../lib/notes');
 const { createNewNote } = require('../../lib/notes.js');
 const { notes } = require('../../db/db.json');
 const uuid = require('../../lib/uuid.js');
 
 const fs = require("fs");
 const path = require('path');
-
 
 // request for notes
 // router.get('/api/notes', (req, res) => {
@@ -20,27 +18,25 @@ router.get('/notes', (req, res) => {
 
 
 // GET request for a single note
-router.get('/notes/:note_id', (req, res) => {
-  if (req.body && req.params.note_id) {
-    const noteId = req.params.note_id;
-    for (let i = 0; i < notes.length; i++) {
-      const currentNote = notes[i];
-      if (currentNote.note_id === noteId) {
-        res.json(currentNote);
-        return;
-      }
-    }
-    res.json('Note ID not found');
-  }
-});
+// router.get('/notes/:id', (req, res) => {
+//   if (req.body && req.params.id) {
+//     const noteId = req.params.id;
+//     for (let i = 0; i < notes.length; i++) {
+//       const currentNote = notes[i];
+//       if (currentNote.id === noteId) {
+//         res.json(currentNote);
+//         return;
+//       }
+//     }
+//     res.json('Note ID not found');
+//   }
+// });
 
 
 
 // POST request to add a note
 router.post('/notes', (req, res) => {
-  // Log that a POST request was received
-  console.info(`${req.method} request received to add a note`);
-
+  
   // Destructuring assignment for the items in req.body
   const { title, text } = req.body;
 
@@ -50,7 +46,7 @@ router.post('/notes', (req, res) => {
     const newNote = {
       title,
       text,
-      note_id: uuid(),
+      id: uuid(),
     };
 
     // Obtain existing notes
@@ -60,7 +56,6 @@ router.post('/notes', (req, res) => {
       } else {
         // Convert string into JSON object
         const parsedNotes = JSON.parse(data);
-
         // Add a new note
         parsedNotes.push(newNote);
 
@@ -90,17 +85,17 @@ router.post('/notes', (req, res) => {
 
 
 
-router.post('/notes', (req, res) => {
-  // set id based on what the next index of the array will be
-  req.body.id = notes.length.toString();
+// router.post('/notes', (req, res) => {
+//   // set id based on what the next index of the array will be
+//   req.body.id = notes.length.toString();
 
-  // if any data in req.body is incorrect, send 400 error back
-  if (!validateNote(req.body)) {
-    res.status(400).send('The note is not properly formatted.');
-  } else {
-    const note = createNewNote(req.body, notes);
-    res.json(note);
-  }
-});
+//   // if any data in req.body is incorrect, send 400 error back
+//   if (!validateNote(req.body)) {
+//     res.status(400).send('The note is not properly formatted.');
+//   } else {
+//     const note = createNewNote(req.body, notes);
+//     res.json(note);
+//   }
+// });
 
 module.exports = router;

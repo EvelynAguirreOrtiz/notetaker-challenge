@@ -6,16 +6,21 @@
     {
         "title": "To Do",
         "text": "finish challenge",
-        "note_id": "4b8e"
+        "id": "4b8e"
     },
     {
         "title": "Next Task",
         "text": "do reading",
-        "note_id": "bf06"
+        "id": "bf06"
     },
     {
         "title": "Enter Another Note",
         "text": "First task\nSecond task\n",
-        "note_id": "d761"
+        "id": "d761"
+    },
+    {
+        "title": "Save this note",
+        "text": "New text",
+        "id": "b91a"
     }
 ]
