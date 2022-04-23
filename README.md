@@ -23,21 +23,21 @@ To use the app, simply click the "Get Started" button. You will be redirected to
 
 
 <!-- add heroku link -->
-The application can be accessed [here]( add heroku link)
+The application can be accessed [here](https://guarded-bastion-50474.herokuapp.com/).
 
 
 <!-- add screenshot -->
-![](./assets/images/html-screenshot.jpg)(screenshot here)
+![](./assets/images/note-taker-landing-page.jpg)
+![](./assets/images/note-taker-notes-page.jpg)
 
-  ## License
-  This application is covered under [The MIT License](https://opensource.org/licenses/MIT). 
+## License
+This application is covered under [The MIT License](https://opensource.org/licenses/MIT). 
 
   
-  ## Questions
+## Questions
 
-  GitHub:
-  <https://github.com/EvelynAguirreOrtiz>
+GitHub:
+<https://github.com/EvelynAguirreOrtiz>
 
-  Please send requests for additional information to:
-  <evelyn.aguirre.9895@gmail.com>
-
+Please send requests for additional information to:
+<evelyn.aguirre.9895@gmail.com>

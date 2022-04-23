@@ -1,1 +1,17 @@
-[{"title":"Enter Another Note","text":"First task\nSecond task\n","id":"d761"},{"title":"Save the next note","text":"note one \nnote two\nnote three\n","id":"b089"},{"title":"Can I save another note","text":"text for new note","id":"245e"},{"title":"note 1","text":"text","id":"7fd8"},{"title":"note 3","text":"text","id":"4860"},{"title":"note 5","text":"text","id":"23c9"}]
+[
+    {
+        "title": "See your saved notes here",
+        "text": "Type your note text here ",
+        "id": "8862"
+    },
+    {
+        "title": "Schedule Zoom meeting",
+        "text": "Discuss upcoming conference details",
+        "id": "7c86"
+    },
+    {
+        "title": "Update team contacts",
+        "text": "Send reminder emails by end of day",
+        "id": "be62"
+    }
+]
